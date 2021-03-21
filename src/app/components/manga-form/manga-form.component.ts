@@ -72,9 +72,16 @@ export class MangaFormComponent implements OnInit {
   ): boolean {
     var artistsId: Array<String> = [];
 
+    // Obtenemos los _id de los artistas seleccionados en los chips
+    for (const artist in this.artists) {
+      if (Object.prototype.hasOwnProperty.call(this.artists, artist)) {
+        const element = this.artists[artist];
+        const artistSelected = this.allArtists.find( a => a.name === element.name)
+        artistSelected?._id != undefined ? artistsId.push(artistSelected._id) : alert(`${element.name} no existe en la base de datos`);      
+      }
+    }
+
     console.log(artistsId);
-    console.log(this.artists);
-    console.log(this.allArtists);
     console.log(this.genders);
 
     // this.mangaService.createManga(
