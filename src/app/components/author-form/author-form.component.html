@@ -1,0 +1,26 @@
+<div class="col-lg-6 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            Upload a new author
+        </div>
+        <div class="card-body">
+            <form (submit)="uploadAuthor(authorName, authorLastName, authorCountry, authorBday)">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Author's name" #authorName>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Author's Last Name" #authorLastName>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Author's country" #authorCountry>
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" placeholder="Author's Birthday" #authorBday>
+                </div>
+                <button class="btn btn-primary btn-block mt-4">
+                    Add
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

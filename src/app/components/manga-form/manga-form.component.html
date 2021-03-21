@@ -1,0 +1,65 @@
+<div class="col-lg-6 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            Upload a new manga
+        </div>
+        <div class="card-body">
+            <form
+                (submit)="uploadManga(mangaTitle, mangaAuthor, mangaArtist, mangaLinks, mangaGenders, mangaDescription)">
+                <mat-form-field class="full-width">
+                    <mat-label>Manga's title</mat-label>
+                    <input matInput placeholder="Ex. Solo Leveling" #mangaTitle>
+                </mat-form-field>
+                <!-- TODO: Autocompletado con entradas existentes en la base de datos -->
+                <mat-form-field class="full-width">
+                    <mat-label>Manga's author</mat-label>
+                    <input matInput placeholder="Ex. Chu-Gong" #mangaAuthor>
+                </mat-form-field>
+                <!-- TODO: Necesito guardar artistas en un array, hacer autocompletado con los artistas existentes en la base de datos -->
+                <mat-form-field class="example-chip-list">
+                    <mat-label>Manga's artist</mat-label>
+                    <mat-chip-list #mangaArtist aria-label="Artist selection">
+                        <mat-chip *ngFor="let artist of artists" [selectable]="selectable" [removable]="removable"
+                            (removed)="removeArtist(artist)">
+                            {{artist.name}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Add artist..." [matChipInputFor]="mangaArtist"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="addArtist($event)">
+                    </mat-chip-list>
+                </mat-form-field>
+                <!-- TODO: Chips de angular material para los links Se guardan en array -->
+                <mat-form-field class="full-width">
+                    <mat-label>Manga's links</mat-label>
+                    <input matInput placeholder="Ex. TuMangaOnline" #mangaLinks>
+                </mat-form-field>
+                <!-- TODO: Chips de angular material para los generos Se guardan en array -->
+                <mat-form-field class="example-chip-list">
+                    <mat-label>Manga's Genders</mat-label>
+                    <mat-chip-list aria-label="Genders selection" #mangaGenders>
+                        <mat-chip *ngFor="let gender of genders" [selectable]="selectable" [removable]="removable"
+                            (removed)="removeGender(gender)">
+                            {{gender.name}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Add genders" [matChipInputFor]="mangaGenders"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            (matChipInputTokenEnd)="addGender($event)">
+                    </mat-chip-list>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Manga's description</mat-label>
+                    <textarea matInput placeholder="Ex. Some things about the manga" #mangaDescription></textarea>
+                  </mat-form-field>
+                <input type="file" class="d-none" (change)="onImageSelected($event)" #mangaImageInput>
+                <img [src]="imageToUpload || 'assets/camara-icon.png'" class="img-fluid img-thumbnail mx-auto d-block"
+                    alt="Not an image" (click)="mangaImageInput.click()">
+
+                <button class="btn btn-primary btn-block mt-4">
+                    Add
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
