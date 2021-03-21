@@ -30,9 +30,18 @@
                     </mat-chip-list>
                 </mat-form-field>
                 <!-- TODO: Chips de angular material para los links Se guardan en array -->
-                <mat-form-field class="full-width">
-                    <mat-label>Manga's links</mat-label>
-                    <input matInput placeholder="Ex. TuMangaOnline" #mangaLinks>
+                <mat-form-field class="example-chip-list">
+                    <mat-label>Manga's Links</mat-label>
+                    <mat-chip-list aria-label="Links selection" #mangaLinks>
+                        <mat-chip *ngFor="let link of links" [selectable]="selectable" [removable]="removable"
+                            (removed)="removeLink(link)">
+                            {{link.name}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Ex: https://lectortmo.com/library/manhwa/41512/solo-leveling" [matChipInputFor]="mangaLinks"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            (matChipInputTokenEnd)="addLink($event)">
+                    </mat-chip-list>
                 </mat-form-field>
                 <!-- TODO: Chips de angular material para los generos Se guardan en array -->
                 <mat-form-field class="example-chip-list">
@@ -43,7 +52,7 @@
                             {{gender.name}}
                             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                         </mat-chip>
-                        <input placeholder="Add genders" [matChipInputFor]="mangaGenders"
+                        <input placeholder="Ex: Lucha, Romance, Aventura" [matChipInputFor]="mangaGenders"
                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                             (matChipInputTokenEnd)="addGender($event)">
                     </mat-chip-list>
@@ -51,7 +60,7 @@
                 <mat-form-field class="full-width">
                     <mat-label>Manga's description</mat-label>
                     <textarea matInput placeholder="Ex. Some things about the manga" #mangaDescription></textarea>
-                  </mat-form-field>
+                </mat-form-field>
                 <input type="file" class="d-none" (change)="onImageSelected($event)" #mangaImageInput>
                 <img [src]="imageToUpload || 'assets/camara-icon.png'" class="img-fluid img-thumbnail mx-auto d-block"
                     alt="Not an image" (click)="mangaImageInput.click()">
