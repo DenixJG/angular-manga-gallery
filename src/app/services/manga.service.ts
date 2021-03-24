@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Manga } from '../interfaces/Manga';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +37,14 @@ export class MangaService {
     fd.append('mangaImage', mangaImage);
 
     return this.http.post(`${this.MANGA_URI}/new-manga`, fd)
+  }
+
+  getMangas() {
+    return this.http.get<Manga[]>(this.MANGA_URI)
+  }
+
+  getManga(id: string) {
+    return this.http.get<Manga>(`${this.MANGA_URI}/${id}`)
   }
 
 }

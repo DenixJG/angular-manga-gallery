@@ -21,7 +21,7 @@ export class AuthorFormComponent implements OnInit {
     authorLastName: HTMLInputElement,
     authorCountry: HTMLInputElement,
     authorBday: HTMLInputElement
-  ): boolean {  
+  ): boolean {
     this.AuthorService.createAuthor(authorName.value, authorLastName.value, authorCountry.value, moment(authorBday.value, 'YYYY-MM-DD').toDate())
       .subscribe(
         res => console.log(res),

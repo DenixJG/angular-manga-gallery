@@ -1,1 +1,27 @@
-<p>manga-details works!</p>
+<div class="row" *ngIf="!manga; else mainContent">
+    <h4>Loading...</h4>
+</div>
+
+<ng-template #mainContent>
+    <div class="row">
+        <div class="col-md-5">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title> {{manga?.title}} </mat-card-title>
+                    <mat-card-subtitle> Author: {{manga?.author?.name}} </mat-card-subtitle>
+                    <mat-chip-list aria-label="Fish selection" *ngFor="let artists of manga.artists">
+                        <mat-chip color="primary" class="p-3 m-2" selected > {{ artists.name }} </mat-chip>
+                    </mat-chip-list>
+                </mat-card-header>
+                <img mat-card-image [src]="'http://localhost:4000/' + manga?.mangaImagePath" alt="Photo of manga">
+                <mat-card-content>
+                    <p> {{manga.description}} </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</ng-template>

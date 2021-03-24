@@ -21,6 +21,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button'
+
 
 
 @NgModule({
@@ -45,8 +49,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatChipsModule,
     MatInputModule,
     MatIconModule,
-    MatFormFieldModule
-    
+    MatFormFieldModule,
+    MatCardModule,
+    MatDividerModule,
+    MatButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

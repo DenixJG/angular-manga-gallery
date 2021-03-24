@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 import { MangaService } from 'src/app/services/manga.service';
 import { ArtistService } from 'src/app/services/artist.service';
+import { AuthorService } from 'src/app/services/author.service';
 
 import { Artist } from 'src/app/interfaces/Artist';
+import { Author } from 'src/app/interfaces/Author';
 
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
@@ -49,9 +54,15 @@ export class MangaFormComponent implements OnInit {
   artists: Artist[] = [];
   allArtists: Artist[] = []; // Artistas de la base de datos
 
+  // Autores de la base de datos
+  allAuthors: Author[] = [];
+  authorFormControl = new FormControl();
+  filteredAuthorNames: Observable<string[]>;
+
   constructor(
     private mangaService: MangaService,
     private artistService: ArtistService,
+    private authorService: AuthorService,
     private router: Router
   ) {}
 
@@ -62,6 +73,16 @@ export class MangaFormComponent implements OnInit {
         this.allArtists = res;
       },
       (err) => console.error(err)
+    );
+    this.authorService.getAuthors().subscribe(
+      (res) => {
+        this.allAuthors = res;
+      },
+      (err) => console.error(err)
+    );
+    this.filteredAuthorNames = this.authorFormControl.valueChanges.pipe(
+      startWith(''),
+      map((name) => this._filter(name, this.allAuthors))
     );
   }
 
@@ -86,15 +107,17 @@ export class MangaFormComponent implements OnInit {
     var artistsIdToUpload: Array<string> = []; // array de string que contiene el id de los artistas que se relacionan a un manga
     var mangaUrlToUpload: Array<string> = []; // array de string que contiene los links que se van a subir
     var gendersToUpload: Array<string> = []; // array de string de los generos de un manga que se van a subir
+    var auhtorIdToUpload: string;
 
     this.getArtistId(artistsIdToUpload);
     this.getLinkUrlComplete(mangaUrlToUpload);
     this.getGenderName(gendersToUpload);
+    auhtorIdToUpload = this.getAuthorId(mangaAuthor.value);
 
     this.mangaService
       .createManga(
         mangaTitle.value,
-        mangaAuthor.value,
+        auhtorIdToUpload,
         artistsIdToUpload,
         mangaUrlToUpload,
         gendersToUpload,
@@ -151,6 +174,23 @@ export class MangaFormComponent implements OnInit {
           : alert(`${element.name} no existe en la base de datos`);
       }
     }
+  }
+
+  // Obtenemos el _id del nombre del autor
+  private getAuthorId(auhtorName: string): string {
+    let authorSelected = this.allAuthors.find((a) => a.name === auhtorName);
+    return authorSelected._id;
+  }
+
+  // FILTRO AUTOCOMPLETADO
+  private _filter(value: string, arr: Array<any>): string[] {
+    const filterValue = value.toLowerCase();
+    const arrNames: string[] = [];
+    arr.forEach((element) => arrNames.push(element?.name));
+
+    return arrNames.filter((option) =>
+      option.toLowerCase().includes(filterValue)
+    );
   }
 
   // CHIPS LOGIC FOR GENDERS

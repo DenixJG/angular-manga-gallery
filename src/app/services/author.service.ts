@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Author } from '../interfaces/Author';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class AuthorService {
     return this.http.post(`${this.AUTHOR_URI}/new-author`, authorToUpload);
   }
 
-  getAuthor() {
-    return this.http.get(this.AUTHOR_URI)
+  getAuthors() {
+    return this.http.get<Author[]>(this.AUTHOR_URI)
   }
 }
