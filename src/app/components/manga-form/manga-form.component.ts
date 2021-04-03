@@ -33,6 +33,7 @@ export interface Links {
   styleUrls: ['./manga-form.component.css'],
 })
 export class MangaFormComponent implements OnInit {
+
   file: File;
   imageToUpload: string | ArrayBuffer;
 
@@ -82,7 +83,7 @@ export class MangaFormComponent implements OnInit {
     );
     this.filteredAuthorNames = this.authorFormControl.valueChanges.pipe(
       startWith(''),
-      map((name) => this._filter(name, this.allAuthors))
+      map((name: string) => this._filter(name, this.allAuthors))
     );
   }
 

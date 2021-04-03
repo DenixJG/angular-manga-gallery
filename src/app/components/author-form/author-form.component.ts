@@ -27,6 +27,12 @@ export class AuthorFormComponent implements OnInit {
         res => console.log(res),
         err => console.error(err)
       )
+
+    // Reseteamos los inputs a vacio para ingresar más datos
+    authorName.value = ''
+    authorLastName.value = ''
+    authorCountry.value = ''
+    authorBday.value = ''
     return false;
   }
 

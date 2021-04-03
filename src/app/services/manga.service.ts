@@ -47,4 +47,25 @@ export class MangaService {
     return this.http.get<Manga>(`${this.MANGA_URI}/${id}`)
   }
 
+  deleteManga(id: string) {
+    return this.http.delete(`${this.MANGA_URI}/${id}`)
+  }
+
+  updateManga(
+    id: string,
+    title?: string,
+    author?: string,
+    artists?: Array<string>,
+    links?: Array<string>,
+    genders?: Array<string>,
+    description?: string,
+    image?: File
+  ) {
+
+    return this.http.put(`${this.MANGA_URI}/${id}`, {
+      title, author, artists, links, genders, description, image
+    })
+
+  }
+
 }

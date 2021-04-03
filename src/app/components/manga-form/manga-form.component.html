@@ -15,6 +15,7 @@
           <input type="text" placeholder="Pick one" aria-label="Author" matInput [formControl]="authorFormControl"
             [matAutocomplete]="auto" #mangaAuthor>
           <mat-autocomplete #auto="matAutocomplete">
+            <!-- FIXME: Si hay varios artistas con el mismo nombre no sabes cual es cual -->
             <mat-option *ngFor="let name of filteredAuthorNames | async" [value]="name">
               {{name}}
             </mat-option>
