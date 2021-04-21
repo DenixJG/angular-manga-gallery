@@ -1,11 +1,13 @@
-<div class="row">
-    <div class="col-3 p-3" *ngFor="let manga of mangas">
-        <mat-card class="material-card" (click)="selectedManga(manga._id)">
-            <mat-card-header>
-                <mat-card-title>{{manga?.title}}</mat-card-title>
-                <mat-card-subtitle>{{manga.author?.name}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image [src]="'http://localhost:4000/' + manga.mangaImagePath" alt="Manga photo">
-        </mat-card>
+<div class="main-content">
+    <div class="row">
+        <div class="col-3 p-3" *ngFor="let manga of mangas">
+            <mat-card class="material-card" (click)="selectedManga(manga._id)">
+                <mat-card-header>
+                    <mat-card-title>{{manga?.title}}</mat-card-title>
+                    <mat-card-subtitle>{{manga.author?.name}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]="'http://localhost:4000/' + manga.mangaImagePath" alt="Manga photo">
+            </mat-card>
+        </div>
     </div>
 </div>

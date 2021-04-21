@@ -12,7 +12,7 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 
   getDashboardInfo() {
-    return this.http.get<Dashboard[]>(this.DASHBOARD_URI);
+    return this.http.get<Dashboard>(this.DASHBOARD_URI);
   }
 
 }

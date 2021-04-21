@@ -1,3 +1,12 @@
+.main-content {
+    position: relative;
+    left: 240px;
+    top: 60px;
+    z-index: 100;
+    width: calc(100% - 240px);
+    padding: 1rem 1.5rem;
+}
+
 .material-card:hover {
     border: solid 1px blue;
     border-radius: 5px;

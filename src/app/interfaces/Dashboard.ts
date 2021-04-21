@@ -1,5 +1,20 @@
 export interface Dashboard {
-    totalMangas: number,
-    totalAuthors: number,
-    totalArtists: number
+    mangaInfo: {
+        infoType: string,
+        link: string,
+        cantidad: number,
+        reciente: Array<Object>
+    },
+    authorInfo: {
+        infoType: string,
+        link: string,
+        cantidad: number,
+        reciente: Array<Object>
+    },
+    artistInfo: {
+        infoType: string,
+        link: string,
+        cantidad: number,
+        reciente: Array<Object>
+    }
 }

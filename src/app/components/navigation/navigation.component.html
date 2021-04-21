@@ -1,31 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand mr-4" routerLink="/">MangaDatabase</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto lm-auto">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+<div class="sidebar">
+    <div class="brand">
+        <span class="lab la-dev"></span>
+        <h2>MangaDB</h2>
+    </div>
+    <div class="sidemenu">
+        <div class="side-user">
+            <div class="side-img" style="background-image: url(../../../assets/user-rafa.png)"></div>
+            <div class="user">
+                <small>Rafael Popescu</small>
+                <p>Manga Database Dev</p>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a class="active" routerLink="/dashboard">
+                    <span class="las la-home"></span>
+                    <span>Dashboard</span>
+                </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/manga-library">Manga Library</a>
+            <li>
+                <a routerLink="/manga-library">
+                    <span class="las la-book"></span>
+                    <span>Manga Library</span>
+                </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/manga-library/new">New Manga</a>
+            <li>
+                <a routerLink="/manga-library/new">
+                    <span class="las la-plus-circle"></span>
+                    <span>Add new manga</span>
+                </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/author/new">New Author</a>
+            <li>
+                <a routerLink="/author/new">
+                    <span class="las la-plus-circle"></span>
+                    <span>Add new author</span>
+                </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/artist/new">New Artist</a>
+            <li>
+                <a routerLink="/artist/new">
+                    <span class="las la-plus-circle"></span>
+                    <span>Add new artist</span>
+                </a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </div>
-</nav>
+</div>
