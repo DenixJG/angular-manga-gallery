@@ -1,68 +1,44 @@
-<div class="main-content">
-    <header>
-        <label for="" class="menu-toggle">
-            <span class="las la-bars"></span>
-        </label>
-        <div class="search">
-            <span class="las la-search"></span>
-            <input type="search" placeholder="Enter search term">
-        </div>
-        <div class="head-icons">
-            <span class="las la-bell"></span>
-            <span class="las la-bookmark"></span>
-            <span class="las la-comment"></span>
-        </div>
-    </header>
-    <main>
+<div class="dashboard-container">
         <div class="cards">
             <div class="card">
-                <div class="card-icon stats">
-                    <span class="las la-chart-bar"></span>
-                </div>
                 <div class="card-info">
                     <h2> {{dashboardInfo?.mangaInfo?.cantidad}} </h2>
                     <small>Total {{dashboardInfo?.mangaInfo?.infoType}}</small>
                 </div>
-                <div class="card-images">
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                </div>
+                <!-- Images for Mangas -->
+                <!-- <div class="card-images" *ngFor="let recent of dashboardInfo?.mangaInfo?.reciente">
+                    <img mat-card-image [src]="'http://localhost:4000/' + recent.mangaImagePath" alt="Manga photo">
+                </div> -->
             </div>
             <div class="card">
-                <div class="card-icon stats">
-                    <span class="las la-chart-bar"></span>
-                </div>
                 <div class="card-info">
                     <h2> {{dashboardInfo?.authorInfo?.cantidad}} </h2>
                     <small>Total {{dashboardInfo?.authorInfo?.infoType}}</small>
                 </div>
-                <div class="card-images">
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                </div>
             </div>
             <div class="card">
-                <div class="card-icon stats">
-                    <span class="las la-chart-bar"></span>
-                </div>
                 <div class="card-info">
                     <h2> {{dashboardInfo?.artistInfo?.cantidad}} </h2>
                     <small>Total {{dashboardInfo?.artistInfo?.infoType}}</small>
                 </div>
-                <div class="card-images">
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                    <div style="background-image: url(../../../assets/user-rafa.png);"></div>
-                </div>
             </div>
         </div>
-    </main>
+
+        <!-- Future charts -->
+        <!-- <div class="chart-grid">
+            <div class="chart-follow">
+                <div class="chart-head">
+                    <h3>Follow</h3>
+                    <span class="las la-cog"></span>
+                </div>
+                <div style="height: 350px;">Chart 1</div>
+            </div>
+            <div class="chart-sales">
+                <div class="chart-head">
+                    <h3>Sales</h3>
+                    <span class="las la-ellipsis-h"></span>
+                </div>
+                <div style="height: 350px;">Chart 2</div>
+            </div>
+        </div> -->
 </div>

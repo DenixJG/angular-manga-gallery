@@ -1,11 +1,52 @@
 img {
-  width: 250px;
+    width: 250px;
 }
 
 .example-chip-list {
-  width: 100%;
+    width: 100%;
 }
 
 .full-width {
-  width: 100%;
+    width: 100%;
+}
+
+::ng-deep .mat-form-field-label {
+    /*change color of label*/
+    color: var(--main-color) !important;
+}
+
+::ng-deep .mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #3e454d !important;
+}
+
+::ng-deep .mat-form-field-ripple .mat-form-field-input {
+    /*change color of underline when focused*/
+    background-color: #efefef !important;
+}
+
+input {
+    font-size: 0.9rem;
+}
+
+.mat-input-element::placeholder {
+    color: #4d4d4d;
+}
+
+.manga-add-button {
+    width: 10rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    color: var(--main-color);
+    border-color: var(--main-color);
+    background: transparent;
+    transition: background-color 300ms;
+}
+
+.manga-add-button:hover {
+    background: var(--main-color);
+    color: var(--bg);
+    cursor: pointer;
+    transition: background-color 300ms;
 }

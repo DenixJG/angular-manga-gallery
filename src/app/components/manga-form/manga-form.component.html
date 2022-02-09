@@ -1,7 +1,7 @@
-<div class="col-lg-6 mx-auto">
+<div class="add-form-container">
   <div class="card">
     <div class="card-header">
-      Upload a new manga
+        <h4>Upload a new manga</h4>
     </div>
     <div class="card-body">
       <form (submit)="uploadManga(mangaTitle, mangaAuthor, mangaArtist, mangaLinks, mangaGenders, mangaDescription)">
@@ -70,7 +70,7 @@
         <img [src]="imageToUpload || 'assets/camara-icon.png'" class="img-fluid img-thumbnail mx-auto d-block"
           alt="Not an image" (click)="mangaImageInput.click()">
 
-        <button class="btn btn-primary btn-block mt-4">
+        <button class="add-button">
           Add
         </button>
       </form>

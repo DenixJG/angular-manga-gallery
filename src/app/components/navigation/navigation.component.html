@@ -1,16 +1,9 @@
-<div class="sidebar">
+<div class="navbar-container">
     <div class="brand">
         <span class="lab la-dev"></span>
         <h2>MangaDB</h2>
     </div>
-    <div class="sidemenu">
-        <div class="side-user">
-            <div class="side-img" style="background-image: url(../../../assets/user-rafa.png)"></div>
-            <div class="user">
-                <small>Rafael Popescu</small>
-                <p>Manga Database Dev</p>
-            </div>
-        </div>
+    <div class="nav-links">
         <ul>
             <li>
                 <a class="active" routerLink="/dashboard">
@@ -21,27 +14,33 @@
             <li>
                 <a routerLink="/manga-library">
                     <span class="las la-book"></span>
-                    <span>Manga Library</span>
+                    <span>Manga</span>
                 </a>
             </li>
             <li>
                 <a routerLink="/manga-library/new">
                     <span class="las la-plus-circle"></span>
-                    <span>Add new manga</span>
+                    <span></span>
                 </a>
             </li>
             <li>
                 <a routerLink="/author/new">
                     <span class="las la-plus-circle"></span>
-                    <span>Add new author</span>
+                    <span></span>
                 </a>
             </li>
             <li>
                 <a routerLink="/artist/new">
                     <span class="las la-plus-circle"></span>
-                    <span>Add new artist</span>
+                    <span></span>
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="search-container">
+        <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <input class="search-input" name="search" ngModel placeholder="Search manga's" />
+            <button class="search-button">Search</button>
+        </form>
     </div>
 </div>

@@ -11,6 +11,7 @@ import { MangaLibraryComponent } from './components/manga-library/manga-library.
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'search/', component: MangaLibraryComponent },
   { path: 'manga-library', component: MangaLibraryComponent },
   { path: 'manga-library/manga/:id', component: MangaDetailsComponent },
   { path: 'manga-library/new', component: MangaFormComponent },

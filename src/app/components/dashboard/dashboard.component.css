@@ -1,0 +1,23 @@
+.dashboard-container {
+    position: relative;
+    top: 5rem;
+}
+
+.cards {
+    padding: 0.6rem;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    border-radius: 5px;
+}
+
+.card {
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    background-color: var(--bg);
+    border-radius: 5px;
+}
+
+.card-info {
+    color: var(--main-color);
+}

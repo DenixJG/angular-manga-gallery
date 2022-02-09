@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Manga } from '../interfaces/Manga';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MangaService {
 
-  private MANGA_URI = "/api/mangas"
+  private MANGA_URI = "/api/mangas";
+  private SEARCH_URI = '/api/search';
 
   constructor(private http: HttpClient) { }
 
